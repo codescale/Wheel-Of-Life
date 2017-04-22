@@ -1,0 +1,24 @@
+{
+  "name": "Wheel Of Life",
+  "authors": [
+    "Matt Kappeller <mkappeller@gmail.com>"
+  ],
+  "description": "Look at your current life in a visual representation and find your state of balance, happiness and success.",
+  "main": "index.html",
+  "keywords": [
+    "Wheel of Life",
+    "Bhavacakra"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
