@@ -3,17 +3,23 @@ body {
   margin: auto;
 }
 #wheelOfLife {
-  width: 400px;
-  height: 400px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
   margin: auto;
-  background: url("Wheel%20Of%20Life.png") no-repeat;
-  background-size: contain;
+}
+
+#wheelOfLife-background {
+  width: 100%;
 }
 
 .triangle {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  top: 0;
+  width: 50%;
+  height: 50%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -22,7 +28,7 @@ body {
 
 .triangle svg{
   /* Default height */
-  height: 155px;
+  height: 79%;
   fill-opacity: 0.8;
 }
 
