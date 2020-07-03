@@ -7,6 +7,64 @@
   <title>Wheel Of Life</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="inputRangeStyle.css">
+
+  <script>
+    const adjustScale = (diagramId) => {
+      let rotate = 0;
+      switch (diagramId) {
+        case "finance":
+          rotate = 45;
+          break;
+        case "personalGrowth":
+          rotate = 90;
+          break;
+        case "health":
+          rotate = 135;
+          break;
+        case "family":
+          rotate = 180;
+          break;
+        case "relationships":
+          rotate = 225;
+          break;
+        case "socialLife":
+          rotate = 270;
+          break;
+        case "attitude":
+          rotate = 315;
+          break;
+        default:
+          rotate = 0;
+          break;
+      }
+
+      const inputId = "input" + diagramId.charAt(0).toUpperCase() + diagramId.slice(1);
+      const vote = document.getElementById(inputId).value;
+      const scale = Number.parseFloat(vote) + 0.02;
+      console.log(scale);
+      document.getElementById(diagramId).style = "transform: rotate(" + rotate + "deg) scale(" + scale + ", " + scale + ")";
+    }
+    window.onload = () => {
+      const career = 6;
+      const finance = 4;
+      const personalGrowth = 5;
+      const health = 6;
+      const famliy = 8;
+      const relationships = 6;
+      const socialLife = 5;
+      const attitude = 4;
+
+      //      adjustScale("career", 0, career);
+      //      adjustScale("finance", 45, finance);
+      //      adjustScale("personalGrowth", 90, personalGrowth);
+      //      adjustScale("health", 135, health);
+      //      adjustScale("family", 180, famliy);
+      //      adjustScale("relationships", 225, relationships);
+      //      adjustScale("socialLife", 270, socialLife);
+      //      adjustScale("attitude", 315, attitude);
+    }
+
+  </script>
 </head>
 
 <body>
@@ -79,64 +137,6 @@
   <p>How is your career going? We spend a lot of time working so how is it for you? Does it excite you? Have you a clear idea what it is you want to achieve? If you are not working are you happy you know what it is you want to do and are taking steps to achieve this? Are you a 1 – you feel physically sick before you go to work each morning (and not because you have been enjoying the festive season too much) or are you a 10 – would you do your job without being paid for it?</p>
   <h1>Final Step</h1>
   <p>When you have scored all areas join the points on each section to draw a wheel. This will show you how balanced overall your life is and what areas you really need to focus on. Put a date on it and review it at least every 6 months.</p>
-
-  <script>
-    const adjustScale = (diagramId) => {
-      let rotate = 0;
-      switch (diagramId) {
-        case "finance":
-          rotate = 45;
-          break;
-        case "personalGrowth":
-          rotate = 90;
-          break;
-        case "health":
-          rotate = 135;
-          break;
-        case "family":
-          rotate = 180;
-          break;
-        case "relationships":
-          rotate = 225;
-          break;
-        case "socialLife":
-          rotate = 270;
-          break;
-        case "attitude":
-          rotate = 315;
-          break;
-        default:
-          rotate = 0;
-          break;
-      }
-
-      const inputId = "input" + diagramId.charAt(0).toUpperCase() + diagramId.slice(1);
-      const vote = document.getElementById(inputId).value;
-      const scale = Number.parseFloat(vote) + 0.02;
-      console.log(scale);
-      document.getElementById(diagramId).style = "transform: rotate(" + rotate + "deg) scale(" + scale + ", " + scale + ")";
-    }
-    window.onload = () => {
-      const career = 6;
-      const finance = 4;
-      const personalGrowth = 5;
-      const health = 6;
-      const famliy = 8;
-      const relationships = 6;
-      const socialLife = 5;
-      const attitude = 4;
-
-      //      adjustScale("career", 0, career);
-      //      adjustScale("finance", 45, finance);
-      //      adjustScale("personalGrowth", 90, personalGrowth);
-      //      adjustScale("health", 135, health);
-      //      adjustScale("family", 180, famliy);
-      //      adjustScale("relationships", 225, relationships);
-      //      adjustScale("socialLife", 270, socialLife);
-      //      adjustScale("attitude", 315, attitude);
-    }
-
-  </script>
 </body>
 
 </html>
