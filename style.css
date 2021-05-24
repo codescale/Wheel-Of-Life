@@ -7,13 +7,10 @@ body {
   width: 80%;
 }
 #wheelOfLife {
+  display: block;
   position: relative;
   max-width: 450px;
   margin: auto;
-}
-
-#wheelOfLife-background {
-  width: 100%;
 }
 
 .triangle {
@@ -25,11 +22,10 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   transform-origin: bottom right;
+  transition: 0.7s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.triangle svg{
-  /* Default height */
-  height: 79%;
+.triangle {
   fill-opacity: 0.8;
 }
 
@@ -43,50 +39,4 @@ body {
 p {
   text-align: justify;
   max-width: var(--input-width);
-}
-
-#career {
-  fill: #ED2527;
-}
-
-#finance {
-  fill: #3DB549;
-  /* overwritten in js */
-  transform: rotate(45deg);
-}
-
-#personalGrowth {
-  fill: #2289B4;
-  /* overwritten in js */
-  transform: rotate(90deg);
-}
-
-#health {
-  fill: #F79321;
-  /* overwritten in js */
-  transform: rotate(135deg);
-}
-
-#family {
-  fill: #94AFDC;
-  /* overwritten in js */
-  transform: rotate(180deg);
-}
-
-#relationships {
-  fill: #FF5F75;
-  /* overwritten in js */
-  transform: rotate(225deg);
-}
-
-#socialLife {
-  fill: #00ADEF;
-  /* overwritten in js */
-  transform: rotate(270deg);
-}
-
-#attitude {
-  fill: #935FA7;
-  /* overwritten in js */
-  transform: rotate(315deg);
 }
