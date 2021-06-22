@@ -27,8 +27,11 @@
         const translate = (1 - Number.parseFloat(scale)) * 300;
         t.setAttribute('transform', `translate(${translate}, ${translate}), scale(${scale})`);
       });
+      svgClone.width.baseVal.valueAsString = svgClone.width.baseVal.value.toString();
+      svgClone.height.baseVal.valueAsString = svgClone.height.baseVal.value.toString();
       const svgXML = (new XMLSerializer).serializeToString(svgClone);
-      loader.src = 'data:image/svg+xml;base64,' + btoa(svgXML);
+      const base64EncodedSVG = 'data:image/svg+xml;base64,' + btoa(svgXML);
+      loader.src = base64EncodedSVG;
     }
     function downloadWheelOfLife(base64) {
       const link = document.createElement('a');
