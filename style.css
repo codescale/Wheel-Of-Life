@@ -21,7 +21,6 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  transform-origin: bottom right;
   transition: 0.7s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
