@@ -9,29 +9,31 @@
   <link rel="stylesheet" href="inputRangeStyle.css">
 
   <script>
+      const wheelSize = 300;
+
     function toImage() {
       let svg = document.querySelector('#wheelOfLife'),
         canvas = document.createElement('canvas'),
         context = canvas.getContext('2d'),
         loader = new Image;
 
+        // Image size
       loader.width = canvas.width = 450;
       loader.height = canvas.height = 450;
+
+      // Load SVG into canvas
+      const svgClone = svg.cloneNode(true);
+      svgClone.width.baseVal.valueAsString = wheelSize.toString();
+      svgClone.height.baseVal.valueAsString = wheelSize.toString();
+      const svgXML = (new XMLSerializer).serializeToString(svgClone);
+      const base64EncodedSVG = 'data:image/svg+xml;base64,' + btoa(svgXML);
+      loader.src = base64EncodedSVG;
+
+      // Draw canvas and downlad
       loader.onload = function () {
         context.drawImage(loader, 0, 0, svg.clientWidth, svg.clientHeight);
         downloadWheelOfLife(canvas.toDataURL());
       };
-      const svgClone = svg.cloneNode(true);
-      svgClone.querySelectorAll('.triangle').forEach(t => {
-        // const scale = t.dataset.scale || 1;
-        // const translate = (1 - Number.parseFloat(scale)) * 300;
-        // t.setAttribute('transform', `translate(${translate}, ${translate}), scale(${scale})`);
-      });
-      svgClone.width.baseVal.valueAsString = svgClone.width.baseVal.value.toString();
-      svgClone.height.baseVal.valueAsString = svgClone.height.baseVal.value.toString();
-      const svgXML = (new XMLSerializer).serializeToString(svgClone);
-      const base64EncodedSVG = 'data:image/svg+xml;base64,' + btoa(svgXML);
-      loader.src = base64EncodedSVG;
     }
     function downloadWheelOfLife(base64) {
       const link = document.createElement('a');
@@ -40,39 +42,11 @@
       link.setAttribute('download', `wheelOfLife-${new Date().toISOString().slice(0, 10)}.png`);
       link.click();
     }
-    function adjustScale(diagramId) {
-      let rotate = 0;
-      switch (diagramId) {
-        case "finance":
-          rotate = 45;
-          break;
-        case "personalGrowth":
-          rotate = 90;
-          break;
-        case "health":
-          rotate = 135;
-          break;
-        case "family":
-          rotate = 180;
-          break;
-        case "relationships":
-          rotate = 225;
-          break;
-        case "socialLife":
-          rotate = 270;
-          break;
-        case "attitude":
-          rotate = 315;
-          break;
-        default:
-          rotate = 0;
-          break;
-      }
-
+      function adjustScale(diagramId) {
       const inputId = "input" + diagramId.charAt(0).toUpperCase() + diagramId.slice(1);
 
       const scale = document.getElementById(inputId).value;
-      const translate = (1 - Number.parseFloat(scale)) * 150;
+      const translate = (1 - Number.parseFloat(scale)) * (wheelSize / 2);
 
       const path = document.querySelector(`#${diagramId}`);
       path.setAttribute('transform', `translate(${translate}, ${translate}), scale(${scale})`);
