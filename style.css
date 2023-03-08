@@ -4,6 +4,13 @@ body {
   justify-content: center;
 }
 
+footer {
+  position: fixed;
+  margin: 10px;
+  bottom: 0;
+  right: 0;
+}
+
 #container {
   width: 80%;
 }
