@@ -3,29 +3,9 @@ body {
   flex-direction: row;
   justify-content: center;
 }
+
 #container {
   width: 80%;
-}
-#wheelOfLife {
-  display: block;
-  position: relative;
-  max-width: 450px;
-  margin: auto;
-}
-
-.triangle {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 50%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  transition: 0.7s cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-.triangle {
-  fill-opacity: 0.8;
 }
 
 #categories {
@@ -35,7 +15,19 @@ body {
   gap: 15px;
 }
 
+#final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid gray;
+}
+
 p {
   text-align: justify;
   max-width: var(--input-width);
+}
+
+#chart {
+  max-width: 450px;
+  margin: auto;
 }
